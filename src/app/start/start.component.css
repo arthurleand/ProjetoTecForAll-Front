@@ -1,0 +1,8 @@
+#img-bg{
+    background-image: url(https://www.cqcs.com.br/wp-content/uploads/2020/05/cadastro.jpeg);
+    min-height: 1000px;
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:  cover;
+}
