@@ -7,6 +7,8 @@ import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { UsermenuComponent } from './usermenu/usermenu.component';
 import { StartComponent } from './start/start.component';
+import { AboutComponent } from './about/about.component';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { StartComponent } from './start/start.component';
     MenuComponent,
     FooterComponent,
     UsermenuComponent,
-    StartComponent
+    StartComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
