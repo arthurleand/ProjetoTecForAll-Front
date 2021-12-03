@@ -6,7 +6,9 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { UsermenuComponent } from './usermenu/usermenu.component';
+import { StartComponent } from './start/start.component';
 import { AboutComponent } from './about/about.component';
+
 
 @NgModule({
   declarations: [
@@ -14,6 +16,7 @@ import { AboutComponent } from './about/about.component';
     MenuComponent,
     FooterComponent,
     UsermenuComponent,
+    StartComponent,
     AboutComponent
   ],
   imports: [
