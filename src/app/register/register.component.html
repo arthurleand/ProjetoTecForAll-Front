@@ -13,7 +13,7 @@
           <div class="form-group">
             <label for="name">Nome</label>
             <input
-              [(ngModel)]='userRegistrationDTO.name'
+              [(ngModel)]='user.name'
               class="form-control"
               type="text"
               name="name"
@@ -22,7 +22,7 @@
             />
             <label for="email">Email</label>
             <input
-              [(ngModel)]='userRegistrationDTO.email'
+              [(ngModel)]='user.email'
               class="form-control"
               type="email"
               name="email"
@@ -31,7 +31,7 @@
             />
             <label for="linkFoto">Link da foto</label>
             <input
-              [(ngModel)]='userRegistrationDTO.foto'
+              [(ngModel)]='user.foto'
               class="form-control"
               type="text"
               name="linkFoto"
@@ -49,7 +49,7 @@
             />
             <label for="confirmPassword">Confirme sua senha</label>
             <input
-              [(ngModel)]='userRegistrationDTO.password'
+              [(ngModel)]='user.password'
               class="form-control"
               type="password"
               name="confirmPassword"

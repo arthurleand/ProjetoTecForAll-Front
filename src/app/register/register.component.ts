@@ -6,13 +6,16 @@ import { AuthService } from '../service/auth.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  userRegistrationDTO: UserRegistrationDTO = new UserRegistrationDTO();
-  confirmePassword: string;
+  user: UserRegistrationDTO = new UserRegistrationDTO
+  confirmePassword: string
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService, 
+    private router: Router
+    ) {}
 
   ngOnInit() {
     window.scroll(0, 0);
@@ -23,13 +26,13 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    if (this.userRegistrationDTO.password != this.confirmePassword) {
+    if (this.user.password != this.confirmePassword) {
       alert('As senhas estão diferentes');
     } else {
       this.authService
-        .register(this.userRegistrationDTO)
+        .register(this.user)
         .subscribe((resp: UserRegistrationDTO) => {
-          this.userRegistrationDTO = resp;
+          this.user = resp;
           this.router.navigate(['/login']);
           alert('Usuário cadastrado!!');
         });

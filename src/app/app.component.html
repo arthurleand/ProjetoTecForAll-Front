@@ -1,6 +1,6 @@
-<app-menu></app-menu>
+<app-menu *ngIf='auth.logado()'></app-menu>
 
-<app-start></app-start>
+<router-outlet></router-outlet>
 
-<app-footer></app-footer>
+<app-footer *ngIf='auth.logado()'></app-footer>
 

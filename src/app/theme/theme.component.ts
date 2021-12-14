@@ -11,23 +11,34 @@ import { ThemeService } from '../service/theme.service';
 })
 export class ThemeComponent implements OnInit {
 
-  theme: ThemeModel =  new ThemeModel
-  listTheme: ThemeModel[] 
+  theme: ThemeModel = new ThemeModel
+  listTheme: ThemeModel[]
 
-  constructor(private router: Router, private themeService: ThemeService) {
+  constructor(
+    private router: Router,
+    private themeService: ThemeService
+  ) { }
 
+  ngOnInit() {
 
-  }
-
-  ngOnInit(){
-
-    if(environment.token ==''){
+    if (environment.token == '') {
       this.router.navigate(['/entrar'])
     }
     this.themeService.refreshToken()
-
-
-
+    this.findAllTheme()
+  }
+  register() {
+    this.themeService.postTheme(this.theme).subscribe((resp: ThemeModel) => {
+      this.theme = resp
+      alert('Tema cadastrado com sucesso!')
+      this.findAllTheme()
+      this.theme = new ThemeModel()
+    })
+  }
+  findAllTheme() {
+    this.themeService.getAllTheme().subscribe((resp: ThemeModel[]) => {
+      this.listTheme = resp
+    })
   }
 
 }

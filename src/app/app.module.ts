@@ -13,6 +13,8 @@ import { RegisterComponent } from './register/register.component';
 import { ThemeComponent } from './theme/theme.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ThemeEditComponent } from './edit/theme-edit/theme-edit.component';
+import { ThemeDeleteComponent } from './delete/theme-delete/theme-delete.component';
 
 
 
@@ -26,7 +28,9 @@ import { FormsModule } from '@angular/forms';
     AboutComponent,
     LoginComponent,
     RegisterComponent,
-    ThemeComponent
+    ThemeComponent,
+    ThemeEditComponent,
+    ThemeDeleteComponent
   ],
   imports: [
     BrowserModule,
