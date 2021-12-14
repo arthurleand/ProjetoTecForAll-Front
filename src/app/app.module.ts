@@ -10,6 +10,7 @@ import { StartComponent } from './start/start.component';
 import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ThemeComponent } from './theme/theme.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { RegisterComponent } from './register/register.component';
     StartComponent,
     AboutComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ThemeComponent
   ],
   imports: [
     BrowserModule,
