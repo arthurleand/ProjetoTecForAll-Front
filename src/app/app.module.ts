@@ -10,8 +10,10 @@ import { StartComponent } from './start/start.component';
 import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ThemeComponent } from './theme/theme.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     StartComponent,
     AboutComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ThemeComponent
   ],
   imports: [
     BrowserModule,
