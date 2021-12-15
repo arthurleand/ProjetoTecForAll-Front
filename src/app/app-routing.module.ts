@@ -1,3 +1,4 @@
+import { PostEditComponent } from './edit/post-edit/post-edit.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'theme-edit/:id', component: ThemeEditComponent},
   {path: 'theme-delete/:id', component: ThemeDeleteComponent},
   {path: 'feed', component: FeedComponent},
-  {path: 'user-edit/:id', component: UserEditComponent}
+  {path: 'user-edit/:id', component: UserEditComponent},
+  {path: 'post-edit/:id', component: PostEditComponent}
 ];
 
 @NgModule({

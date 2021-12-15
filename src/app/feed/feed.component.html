@@ -82,8 +82,8 @@
                       </p>
                       <p>teste</p>
 
-                      <!-- <a [routerLink]="['/postagem-delete', item.id]" class="text-danger mr-3">Apagar</a> -->
-                      <!-- <a [routerLink]="['/postagem-edit', item.id]" class="text-info">Editar</a> -->
+                       <a class="text-danger mr-3">Apagar</a> 
+                       <a [routerLink]="['/post-edit', item.idPost]" class="text-info">Editar</a> 
 
                   </div>
                 </div>
@@ -136,7 +136,7 @@
                       >
                   </div>
                   <div class="form-group">
-                      <label for="titulo">Description Post</label>
+                      <label for="titulo">Descrição da postagem</label>
                       <input
                           [(ngModel)]='postModel.descriptionPost'
                           class="form-control"
