@@ -22,17 +22,16 @@ export class LoginComponent implements OnInit {
   }
   login(){
     this.auth.login(this.userLoginDTO).subscribe((resp: UserLoginDTO)=>{
-      this.userLoginDTO = resp 
+      this.userLoginDTO = resp
 
       environment.token = this.userLoginDTO.token
       environment.name = this.userLoginDTO.name
       environment.foto = this.userLoginDTO.foto
       environment.id = this.userLoginDTO.id
 
-      console.log(environment.token);
-      
+      this.router.navigate(['/feed'])
 
-      this.router.navigate(['/home'])
+      console.log(environment.token);
 
     }, erro=>{
       if(erro.status == 500){

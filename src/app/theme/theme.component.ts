@@ -11,7 +11,7 @@ import { ThemeService } from '../service/theme.service';
 })
 export class ThemeComponent implements OnInit {
 
-  theme: ThemeModel = new ThemeModel
+  theme: ThemeModel = new ThemeModel()
   listTheme: ThemeModel[]
 
   constructor(
@@ -22,7 +22,7 @@ export class ThemeComponent implements OnInit {
   ngOnInit() {
 
     if (environment.token == '') {
-      this.router.navigate(['/entrar'])
+      this.router.navigate(['/login'])
     }
     this.themeService.refreshToken()
     this.findAllTheme()
@@ -31,6 +31,7 @@ export class ThemeComponent implements OnInit {
     this.themeService.postTheme(this.theme).subscribe((resp: ThemeModel) => {
       this.theme = resp
       alert('Tema cadastrado com sucesso!')
+      this.router.navigate(['/feed'])
       this.findAllTheme()
       this.theme = new ThemeModel()
     })
