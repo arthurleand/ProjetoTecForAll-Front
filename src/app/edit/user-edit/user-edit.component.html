@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center text-secondary">Atualizar</h1>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="name">Nome</label>
+                <input
+                  [(ngModel)]='user.name'
+                  class="form-control"
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Digite seu nome"
+                />
+                <label for="email">Email</label>
+                <input
+                  [(ngModel)]='user.email'
+                  class="form-control"
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Digite seu email"
+                />
+                <label for="linkFoto">Link da foto</label>
+                <input
+                  [(ngModel)]='user.foto'
+                  class="form-control"
+                  type="text"
+                  name="linkFoto"
+                  id="linkFoto"
+                  placeholder="Digite o link da sua foto"
+                />
+                <label for="password">Senha</label>
+                <input
+                  (input)="confirmPassword($event)"
+                  class="form-control"
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="Digite sua senha"
+                />
+                <label for="confirmPassword">Confirme sua senha</label>
+                <input
+                  [(ngModel)]='user.password'
+                  class="form-control"
+                  type="password"
+                  name="confirmPassword"
+                  id="confirmPassword"
+                  placeholder="Confirme sua senha"
+                />
+              </div>
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-danger mr-4" routerLink="/home">Cancelar</button>
+                <button type="submit" class="btn btn-warning"(click)="update()">Cadastrar</button>
+              </div>
+        </div>
+    </div>
+</div>

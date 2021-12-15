@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { ThemeEditComponent } from './edit/theme-edit/theme-edit.component';
 import { ThemeDeleteComponent } from './delete/theme-delete/theme-delete.component';
 import { FeedComponent } from './feed/feed.component';
+import { UserEditComponent } from './edit/user-edit/user-edit.component';
 
 
 
@@ -32,7 +33,8 @@ import { FeedComponent } from './feed/feed.component';
     ThemeComponent,
     ThemeEditComponent,
     ThemeDeleteComponent,
-    FeedComponent
+    FeedComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

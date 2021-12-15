@@ -20,7 +20,7 @@ export class AuthService {
   }
   refreshToken(){
     this.token = {
-      headers: new HttpHeaders().set('Authorization', environment.token)
+      headers: new HttpHeaders().set('Authorization',environment.token)
     }
   }
 
@@ -32,12 +32,12 @@ export class AuthService {
       return this.http.post<UserRegistrationDTO>('http://localhost:8080/user/register',userRegistrationDTO)
     }
 
-    getByIdUser(id: number): Observable<UserModel>{
+    getByIdUser(id: number):Observable<UserModel>{
       return this.http.get<UserModel>(`http://localhost:8080/user/${id}`, this.token)
     }
 
     updateUser(user: UserModel): Observable<UserModel>{
-      return this.http.put<UserModel>('http://localhost:8080/user/update', this.token)
+      return this.http.put<UserModel>('http://localhost:8080/user/update', user, this.token)
     }
 
     logado(){

@@ -4,6 +4,7 @@ import { AboutComponent } from './about/about.component';
 import { ThemeDeleteComponent } from './delete/theme-delete/theme-delete.component';
 import { ThemeEditComponent } from './edit/theme-edit/theme-edit.component';
 import { FeedComponent } from './feed/feed.component';
+import { UserEditComponent } from './edit/user-edit/user-edit.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { StartComponent } from './start/start.component';
@@ -20,7 +21,7 @@ const routes: Routes = [
   {path: 'theme-edit/:id', component: ThemeEditComponent},
   {path: 'theme-delete/:id', component: ThemeDeleteComponent},
   {path: 'feed', component: FeedComponent},
-  
+  {path: 'user-edit/:id', component: UserEditComponent}
 ];
 
 @NgModule({
