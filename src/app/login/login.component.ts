@@ -24,10 +24,13 @@ export class LoginComponent implements OnInit {
     this.auth.login(this.userLoginDTO).subscribe((resp: UserLoginDTO)=>{
       this.userLoginDTO = resp 
 
-      environment.token = this.userLoginDTO.basicToken
+      environment.token = this.userLoginDTO.token
       environment.name = this.userLoginDTO.name
       environment.foto = this.userLoginDTO.foto
       environment.id = this.userLoginDTO.id
+
+      console.log(environment.token);
+      
 
       this.router.navigate(['/home'])
 
