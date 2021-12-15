@@ -1,6 +1,6 @@
 <div class="container-fluid">
 
-  <div class="row bg-dark d-flex align-items-center bd-top">
+  <div class="row bg-secondary d-flex align-items-center bd-top">
 
       <div class="col-md-6">
 
@@ -14,14 +14,14 @@
           <div class="row d-flex justify-content-center mt-1 mb-5">
               <div class="col-md-6">
                   <button
-                      class="btn btn-success mr-2 mt-3"
+                      class="btn btn-warning mr-2 mt-3"
                       style="width: 140px;"
                       data-toggle="modal"
                       data-target="#newPost"
                       >
                       Nova postagem
                   </button>
-                  <a class="btn btn-outline-info mt-3" style="width: 140px;" href="#post">Ver postagens</a>
+                  <a class="btn btn-outline-light mt-3" style="width: 140px;" href="#post">Ver postagens</a>
               </div>
 
           </div>
@@ -29,7 +29,7 @@
       </div>
 
       <div class="col-md-6 d-flex justify-content-center">
-          <img src="https://i.imgur.com/ssiykNN.png" alt="" width="500px" height="500px">
+          <img src="https://i.imgur.com/u9265F2.png" alt="" width="500px" height="500px">
       </div>
 
   </div>
@@ -57,8 +57,7 @@
                   <div class="card-body">
                       <h6 class="card-subtitle mb-2 text-muted">by {{item.fkUser.name}}</h6>
                       <h5 class="card-title">{{item.title}}</h5>
-                      <small class="text-muted">{{item.fkTheme.descriptionTheme}}</small>
-                      <p class="card-text">{{item.archive}}</p>
+                      <small class="text-muted">{{item.fkTheme.name}}</small>
                       <p class="card-text"  >
                           <small>{{item.date | date: 'dd/MM/yyyy'}} às {{item.date | date: 'HH:mm'}}</small>
                       </p>
@@ -80,7 +79,6 @@
                       <p class="card-text"  >
                           <small>{{item.date | date: 'dd/MM/yyyy'}} às {{item.date | date: 'HH:mm'}}</small>
                       </p>
-                      <p>teste</p>
 
                        <a class="text-danger mr-3">Apagar</a> 
                        <a [routerLink]="['/post-edit', item.idPost]" class="text-info">Editar</a> 

@@ -46,8 +46,6 @@ export class FeedComponent implements OnInit {
     this.themeService.refreshToken()
     this.postService.refreshToken()
 
-    console.log(environment)
-
     this.getAllThemes()
     this.getAllPosts()
   }
@@ -89,7 +87,7 @@ export class FeedComponent implements OnInit {
     this.postService.postPublish(this.postModel).subscribe((resp: PostModel) => {
       this.postModel = resp
       alert('Postagem realizada com sucesso!!')
-      this.postModel = new PostModel()
+      this.postModel = new PostModel
       this.getAllPosts()
     })
   }

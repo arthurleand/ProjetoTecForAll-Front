@@ -18,6 +18,7 @@ import { ThemeDeleteComponent } from './delete/theme-delete/theme-delete.compone
 import { FeedComponent } from './feed/feed.component';
 import { UserEditComponent } from './edit/user-edit/user-edit.component';
 import { PostEditComponent } from './edit/post-edit/post-edit.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 
@@ -44,7 +45,10 @@ import { PostEditComponent } from './edit/post-edit/post-edit.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
