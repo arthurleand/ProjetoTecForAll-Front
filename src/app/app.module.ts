@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ThemeEditComponent } from './edit/theme-edit/theme-edit.component';
 import { ThemeDeleteComponent } from './delete/theme-delete/theme-delete.component';
+import { FeedComponent } from './feed/feed.component';
 
 
 
@@ -30,7 +31,8 @@ import { ThemeDeleteComponent } from './delete/theme-delete/theme-delete.compone
     RegisterComponent,
     ThemeComponent,
     ThemeEditComponent,
-    ThemeDeleteComponent
+    ThemeDeleteComponent,
+    FeedComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,178 @@
+<div class="container-fluid">
+
+  <div class="row bg-dark d-flex align-items-center bd-top">
+
+      <div class="col-md-6">
+
+          <div class="row d-flex justify-content-center text-white">
+              <div class="col-md-6">
+                  <h1 class="fs-54">Seja Bem vindo(a)</h1>
+                  <h5 class="fs-18">Expresse aqui seus pensamentos e opiniões</h5>
+              </div>
+          </div>
+
+          <div class="row d-flex justify-content-center mt-1 mb-5">
+              <div class="col-md-6">
+                  <button
+                      class="btn btn-success mr-2 mt-3"
+                      style="width: 140px;"
+                      data-toggle="modal"
+                      data-target="#newPost"
+                      >
+                      Nova postagem
+                  </button>
+                  <a class="btn btn-outline-info mt-3" style="width: 140px;" href="#post">Ver postagens</a>
+              </div>
+
+          </div>
+
+      </div>
+
+      <div class="col-md-6 d-flex justify-content-center">
+          <img src="https://i.imgur.com/ssiykNN.png" alt="" width="500px" height="500px">
+      </div>
+
+  </div>
+
+</div>
+
+<div class="container my-5" id="post">
+  <nav>
+      <div class="nav nav-tabs d-flex justify-content-center my-5" id="nav-tab" role="tablist">
+        <a class="nav-link active text-secondary font-weight-bold" id="allPost-tab" data-toggle="tab" href="#allPost" role="tab" aria-controls="allPost" aria-selected="true">Todas as postagens</a>
+
+        <a (click)='findByIdUser()' class="nav-link text-secondary font-weight-bold" id="myPosts-tab" data-toggle="tab" href="#myPosts" role="tab" aria-controls="myPosts" aria-selected="false">Minhas Postagens</a>
+
+        <a class="nav-link text-secondary font-weight-bold" id="postTheme-tab" data-toggle="tab" href="#postTheme"
+        role="tab" aria-controls="postTheme" aria-selected="false">Postagens por tema</a>
+      </div>
+    </nav>
+
+    <div class="tab-content mt-5" id="nav-tabContent">
+
+      <div class="tab-pane fade show active" id="allPost" role="tabpanel" aria-labelledby="allPost-tab">
+
+          <div class="card-columns d-flex flex-wrap justify-content-center">
+              <div class="card mt-3" style="width: 50%;" *ngFor='let item of listPost'>
+                  <div class="card-body">
+                      <h6 class="card-subtitle mb-2 text-muted">by {{item.fkUser.name}}</h6>
+                      <h5 class="card-title">{{item.title}}</h5>
+                      <small class="text-muted">{{item.fkTheme.descriptionTheme}}</small>
+                      <p class="card-text">{{item.archive}}</p>
+                      <p class="card-text"  >
+                          <small>{{item.date | date: 'dd/MM/yyyy'}} às {{item.date | date: 'HH:mm'}}</small>
+                      </p>
+                  </div>
+                </div>
+          </div>
+
+      </div>
+
+      <div class="tab-pane fade" id="myPosts" role="tabpanel" aria-labelledby="myPosts-tab">
+
+          <div class="card-columns d-flex flex-wrap justify-content-center">
+              <div class="card mt-3" style="width: 50%;" *ngFor='let item of userModel.post'>
+                  <div class="card-body">
+                      <h6 class="card-subtitle mb-2 text-muted">by {{userModel.name}}</h6>
+                      <h5 class="card-title">{{item.title}}</h5>
+                      <small class="text-muted">{{item.fkTheme.descriptionTheme}}</small>
+                      <p class="card-text">{{item.archive}}</p>
+                      <p class="card-text"  >
+                          <small>{{item.date | date: 'dd/MM/yyyy'}} às {{item.date | date: 'HH:mm'}}</small>
+                      </p>
+                      <p>teste</p>
+
+                      <!-- <a [routerLink]="['/postagem-delete', item.id]" class="text-danger mr-3">Apagar</a> -->
+                      <!-- <a [routerLink]="['/postagem-edit', item.id]" class="text-info">Editar</a> -->
+
+                  </div>
+                </div>
+          </div>
+
+      </div>
+
+      <div class="tab-pane fade" id="postTheme" role="tabpanel" aria-labelledby="postTheme-tab">
+          <div class="card-columns d-flex flex-wrap justify-content-center" *ngFor='let tema of listTheme'>
+              <div class="card mt-3" style="width: 50%;" *ngFor='let item of tema.post'>
+                  <div class="card-body">
+                      <h6 class="card-subtitle mb-2 text-muted">by {{item.fkUser.name}}</h6>
+                      <h5 class="card-title">{{item.title}}</h5>
+                      <p class="card-text">{{item.archive}}</p>
+                      <p class="card-text"  >
+                          <small>{{item.date | date: 'dd/MM/yyyy'}} às {{item.date | date: 'HH:mm'}}</small>
+                      </p>
+                  </div>
+                </div>
+          </div>
+
+      </div>
+    </div>
+</div>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="newPost" tabindex="-1" aria-labelledby="TituloModalCentralizado" aria-hidden="true" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="TituloModalCentralizado">Nova Postagem</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <form>
+
+                  <div class="form-group">
+                      <label for="titulo">Título</label>
+                      <input
+                          [(ngModel)]='postModel.title'
+                          class="form-control"
+                          type="text"
+                          name="titulo"
+                          id="titulo"
+                          placeholder="Digite o título"
+                      >
+                  </div>
+                  <div class="form-group">
+                      <label for="titulo">Description Post</label>
+                      <input
+                          [(ngModel)]='postModel.descriptionPost'
+                          class="form-control"
+                          type="text"
+                          name="descriptionPost"
+                          id="descriptionPost"
+                          placeholder="Digite o título"
+                      >
+                  </div>
+
+                  <div class="form-group">
+                      <label for="texto">Texto</label>
+                      <textarea
+                          [(ngModel)]='postModel.archive'
+                          class="form-control"
+                          name="texto"
+                          id="texto"
+                          rows="3"
+                          placeholder="Digite o texto">
+                      </textarea>
+                  </div>
+
+                  <div class="form-group">
+                      <label for="texto">Escolha um novo Tema ou <a routerLink='/theme' data-dismiss="modal">Cadastre um novo</a>:</label>
+                      <select class="form-control" name="theme" id="theme" [(ngModel)]='idTheme' (change)='findByIdThemes()'>
+                          <option *ngFor='let item of listTheme' value="{{item.idTheme}}">{{item.descriptionTheme}}</option>
+                      </select>
+                  </div>
+
+              </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-success" (click)='publish()' data-dismiss="modal">Publicar</button>
+          </div>
+        </div>
+      </div>
+  </div>
+

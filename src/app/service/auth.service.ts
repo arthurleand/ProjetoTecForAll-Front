@@ -23,7 +23,7 @@ export class AuthService {
       headers: new HttpHeaders().set('Authorization', environment.token)
     }
   }
-    
+
     login(userLoginDTO : UserLoginDTO) : Observable<UserLoginDTO>{
       return this.http.post<UserLoginDTO>('http://localhost:8080/user/login', userLoginDTO)
     }
@@ -33,7 +33,7 @@ export class AuthService {
     }
 
     getByIdUser(id: number): Observable<UserModel>{
-      return this.http.get<UserModel>(`'http://localhost:8080/user/${id}`, this.token)
+      return this.http.get<UserModel>(`http://localhost:8080/user/${id}`, this.token)
     }
 
     updateUser(user: UserModel): Observable<UserModel>{
@@ -43,11 +43,11 @@ export class AuthService {
     logado(){
 
       let ok: boolean = false
-  
+
       if(environment.token != ''){
         ok = true
       }
-  
+
       return ok
     }
 
