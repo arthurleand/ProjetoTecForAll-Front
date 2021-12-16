@@ -57,6 +57,7 @@
                   <div class="card-body">
                       <h6 class="card-subtitle mb-2 text-muted">by {{item.fkUser.name}}</h6>
                       <h5 class="card-title">{{item.title}}</h5>
+                      <p class="card-text">{{item.descriptionPost}}</p>
                       <small class="text-muted">{{item.fkTheme.name}}</small>
                       <p class="card-text"  >
                           <small>{{item.date | date: 'dd/MM/yyyy'}} às {{item.date | date: 'HH:mm'}}</small>
@@ -74,7 +75,8 @@
                   <div class="card-body">
                       <h6 class="card-subtitle mb-2 text-muted">by {{userModel.name}}</h6>
                       <h5 class="card-title">{{item.title}}</h5>
-                      <small class="text-muted">{{item.fkTheme.descriptionTheme}}</small>
+                      <p class="card-text">{{item.descriptionPost}}</p>
+                      <small class="text-muted">{{item.fkTheme.name}}</small>
                       <p class="card-text">{{item.archive}}</p>
                       <p class="card-text"  >
                           <small>{{item.date | date: 'dd/MM/yyyy'}} às {{item.date | date: 'HH:mm'}}</small>
@@ -95,7 +97,7 @@
                   <div class="card-body">
                       <h6 class="card-subtitle mb-2 text-muted">by {{item.fkUser.name}}</h6>
                       <h5 class="card-title">{{item.title}}</h5>
-                      <p class="card-text">{{item.archive}}</p>
+                      <p class="card-text">{{item.descriptionPost}}</p>
                       <p class="card-text"  >
                           <small>{{item.date | date: 'dd/MM/yyyy'}} às {{item.date | date: 'HH:mm'}}</small>
                       </p>
