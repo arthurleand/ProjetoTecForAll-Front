@@ -19,6 +19,7 @@ import { FeedComponent } from './feed/feed.component';
 import { UserEditComponent } from './edit/user-edit/user-edit.component';
 import { PostEditComponent } from './edit/post-edit/post-edit.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { PostDeleteComponent } from './delete/post-delete/post-delete.component';
 
 
 
@@ -37,7 +38,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     ThemeDeleteComponent,
     FeedComponent,
     UserEditComponent,
-    PostEditComponent
+    PostEditComponent,
+    PostDeleteComponent
   ],
   imports: [
     BrowserModule,

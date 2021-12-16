@@ -80,7 +80,7 @@
                           <small>{{item.date | date: 'dd/MM/yyyy'}} às {{item.date | date: 'HH:mm'}}</small>
                       </p>
 
-                       <a class="text-danger mr-3">Apagar</a> 
+                       <a [routerLink]="['/post-delete', item.idPost]" class="text-danger mr-3">Apagar</a> 
                        <a [routerLink]="['/post-edit', item.idPost]" class="text-info">Editar</a> 
 
                   </div>
@@ -90,7 +90,8 @@
       </div>
 
       <div class="tab-pane fade" id="postTheme" role="tabpanel" aria-labelledby="postTheme-tab">
-          <div class="card-columns d-flex flex-wrap justify-content-center" *ngFor='let tema of listTheme'>
+          
+        <div class="card-columns d-flex flex-wrap justify-content-center" *ngFor='let tema of listTheme'>
               <div class="card mt-3" style="width: 50%;" *ngFor='let item of tema.post'>
                   <div class="card-body">
                       <h6 class="card-subtitle mb-2 text-muted">by {{item.fkUser.name}}</h6>

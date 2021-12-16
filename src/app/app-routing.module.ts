@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { StartComponent } from './start/start.component';
 import { ThemeComponent } from './theme/theme.component';
+import { PostDeleteComponent } from './delete/post-delete/post-delete.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'theme-delete/:id', component: ThemeDeleteComponent},
   {path: 'feed', component: FeedComponent},
   {path: 'user-edit/:id', component: UserEditComponent},
-  {path: 'post-edit/:id', component: PostEditComponent}
+  {path: 'post-edit/:id', component: PostEditComponent},
+  {path: 'post-delete/:id', component: PostDeleteComponent}
 ];
 
 @NgModule({
