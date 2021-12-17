@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { ThemeModel } from '../model/ThemeModel';
+import { AlertsService } from '../service/alerts.service';
 import { ThemeService } from '../service/theme.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class ThemeComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private alerts: AlertsService
   ) { }
 
   ngOnInit() {
@@ -30,7 +32,7 @@ export class ThemeComponent implements OnInit {
   register() {
     this.themeService.postTheme(this.theme).subscribe((resp: ThemeModel) => {
       this.theme = resp
-      alert('Tema cadastrado com sucesso!')
+      this.alerts.showAlertSuccess('Tema cadastrado com sucesso!')
       this.router.navigate(['/feed'])
       this.findAllTheme()
       this.theme = new ThemeModel()

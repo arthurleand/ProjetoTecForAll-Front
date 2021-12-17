@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostModel } from 'src/app/model/PostModel';
+import { AlertsService } from 'src/app/service/alerts.service';
 import { PostService } from 'src/app/service/post.service';
 import { ThemeService } from 'src/app/service/theme.service';
 import { environment } from 'src/environments/environment.prod';
@@ -18,12 +19,13 @@ export class PostDeleteComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private postService: PostService
+    private postService: PostService,
+    private alerts: AlertsService
 
   ) { }
 
   ngOnInit(){
-   
+
     if (environment.token == '') {
       alert('Seção expirada, faça o login novamente!')
       this.router.navigate(['/login'])
@@ -42,7 +44,7 @@ export class PostDeleteComponent implements OnInit {
 
   delete(){
     this.postService.deletePost(this.idPost).subscribe(() => {
-      alert('Postagem apagada com sucesso!')
+      this.alerts.showAlertSuccess('Postagem apagada com sucesso!')
       this.router.navigate(['/feed'])
     })
   }

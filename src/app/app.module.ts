@@ -19,7 +19,12 @@ import { FeedComponent } from './feed/feed.component';
 import { UserEditComponent } from './edit/user-edit/user-edit.component';
 import { PostEditComponent } from './edit/post-edit/post-edit.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { OrderModule } from 'ngx-order-pipe';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { PostDeleteComponent } from './delete/post-delete/post-delete.component';
+import { AlertsComponent } from './alerts/alerts.component';
+
+
 
 
 
@@ -39,13 +44,16 @@ import { PostDeleteComponent } from './delete/post-delete/post-delete.component'
     FeedComponent,
     UserEditComponent,
     PostEditComponent,
-    PostDeleteComponent
+    PostDeleteComponent,
+    AlertsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    OrderModule,
+    ModalModule.forRoot()
   ],
   providers: [{
     provide: LocationStrategy,
