@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ThemeModel } from './../../model/ThemeModel';
 import { PostModel } from './../../model/PostModel';
 import { Component, OnInit } from '@angular/core';
+import { AlertsService } from 'src/app/service/alerts.service';
 
 @Component({
   selector: 'app-post-edit',
@@ -26,8 +27,9 @@ export class PostEditComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private postService: PostService,
-    private themeService: ThemeService
- 
+    private themeService: ThemeService,
+    private alerts: AlertsService
+
   ) { }
 
   ngOnInit() {
@@ -67,7 +69,7 @@ export class PostEditComponent implements OnInit {
       console.log(this.postModel)
     this.postService.putPost(this.postModel).subscribe((resp : PostModel)=>{
       this.postModel=resp
-      alert("Postagem atualizada com sucesso!")
+      this.alerts.showAlertSuccess("Postagem atualizada com sucesso!")
       this.router.navigate(['/feed'])
     })
   }

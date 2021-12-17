@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment.prod';
 import { PostModel } from '../model/PostModel';
 import { ThemeModel } from '../model/ThemeModel';
 import { UserModel } from '../model/UserModel';
+import { AlertsService } from '../service/alerts.service';
 import { AuthService } from '../service/auth.service';
 import { PostService } from '../service/post.service';
 import { ThemeService } from '../service/theme.service';
@@ -27,11 +28,15 @@ export class FeedComponent implements OnInit {
   userModel: UserModel = new UserModel()
   idUser = environment.id
 
+  key = 'date'
+  reverse = true
+
   constructor(
     private router: Router,
     private postService: PostService,
     private themeService: ThemeService,
-    private authService: AuthService
+    private authService: AuthService,
+    private alerts: AlertsService
 
     ) { }
 
@@ -55,7 +60,7 @@ export class FeedComponent implements OnInit {
       this.listTheme = resp
     })
   }
-  
+
   findByIdThemes(){
     this.themeService.getByIdTheme(this.idTheme).subscribe((resp: ThemeModel) =>{
       this.themeModel = resp
@@ -86,7 +91,7 @@ export class FeedComponent implements OnInit {
 
     this.postService.postPublish(this.postModel).subscribe((resp: PostModel) => {
       this.postModel = resp
-      alert('Postagem realizada com sucesso!!')
+      this.alerts.showAlertSuccess('Postagem realizada com sucesso!!')
       this.postModel = new PostModel
       this.getAllPosts()
     })

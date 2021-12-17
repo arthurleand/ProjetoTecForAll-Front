@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ThemeModel } from 'src/app/model/ThemeModel';
+import { AlertsService } from 'src/app/service/alerts.service';
 import { ThemeService } from 'src/app/service/theme.service';
 import { environment } from 'src/environments/environment.prod';
 
@@ -15,13 +16,14 @@ export class ThemeEditComponent implements OnInit {
   constructor(
     private themeService: ThemeService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alerts: AlertsService
 
   ) { }
 
   ngOnInit() {
     if (environment.token == '') {
-      alert('Seção expirada, faça o login novamente!')
+      this.alerts.showAlertInfo('Sessão expirada, faça o login novamente!')
       this.router.navigate(['/login'])
 
     }
@@ -37,7 +39,7 @@ export class ThemeEditComponent implements OnInit {
   update() {
     this.themeService.putTheme(this.theme).subscribe((resp: ThemeModel) => {
       this.theme = resp
-      alert('Tema Atualizado!')
+      this.alerts.showAlertInfo('Tema Atualizado!')
       this.router.navigate(['/theme'])
     })
   }
