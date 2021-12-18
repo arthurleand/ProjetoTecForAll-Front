@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
-import { UsermenuComponent } from './usermenu/usermenu.component';
 import { StartComponent } from './start/start.component';
 import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
@@ -23,6 +22,7 @@ import { OrderModule } from 'ngx-order-pipe';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { PostDeleteComponent } from './delete/post-delete/post-delete.component';
 import { AlertsComponent } from './alerts/alerts.component';
+import { UsersidebarComponent } from './usersidebar/usersidebar.component';
 
 
 
@@ -33,7 +33,6 @@ import { AlertsComponent } from './alerts/alerts.component';
     AppComponent,
     MenuComponent,
     FooterComponent,
-    UsermenuComponent,
     StartComponent,
     AboutComponent,
     LoginComponent,
@@ -45,7 +44,8 @@ import { AlertsComponent } from './alerts/alerts.component';
     UserEditComponent,
     PostEditComponent,
     PostDeleteComponent,
-    AlertsComponent
+    AlertsComponent,
+    UsersidebarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,45 @@
+<div class="sidebar sticky-top shadow">
+    <header>
+      <a class="font-weight-bold d-flex align-items-center" href="#">
+        <img
+          src="https://i.imgur.com/wu4NLFh.png"
+          width="40"
+          height="40"
+          class=""
+          alt=""
+        />
+        TEC <small class="fs-5 font-weight-bold">For All</small>
+      </a>
+    </header>
+    <header >
+      <img
+        src="{{foto}}"
+        alt="imagem usuario"
+        width="65x"
+        height="65px"
+        class="img-fluid rounded-circle"
+      />
+  <p class="font-weight-bold text-white ">{{name}}</p></header>
+    <a routerLink='/feed' class="active">
+      <i class="fa fa-home"></i>
+      <span>Início</span>
+    </a>
+    <a href="#">
+      <i class="fa fa-user"></i>
+      <span>Perfil</span>
+    </a>
+    <a routerLink='/theme'>
+      <i class="fa fa-file-text-o"></i>
+      <span>Temas</span>
+    </a>
+   
+    <a [routerLink]="['user-edit',id]" id="config">
+      <i class="fa fa-cog"></i>
+      <span>Configuração</span>
+    </a>
+    <a (click)='exit()'>
+      <i class="fa fa-sign-out"></i>
+      <span>Sair</span>
+    </a>
+  </div>
+  

@@ -10,3 +10,10 @@ html{
     font-size: 18pt;
 
 }
+.bg-menu{
+background-color: #1b1b1b;
+}
+
+.vh-100{
+    min-height: 100vh;
+}

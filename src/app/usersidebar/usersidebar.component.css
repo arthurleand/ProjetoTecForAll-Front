@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.sidebar{
+    width: 240px;
+    left: -240px;
+    height: 100vh;
+    background: #1e1e1e;
+    transition: all .5s ease;
+    
+}
+
+.sidebar header{
+    font-size: 24px;
+    color: white;
+    line-height: 70px;
+    text-align: center;
+    background: #1b1b1b;
+    user-select: none;
+    font-family: 'Montserrat', sans-serif;
+} 
+.sidebar a{
+    display: block;
+    height: 65px;
+    width: 100%;
+    color: white;
+    line-height: 65px;
+    padding-left: 30px;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    border-top: 1px solid rgba(255,255,255,.1);
+    border-left: 5px solid transparent;
+    font-family: 'Open Sans', sans-serif;
+    transition: all .5s ease;
+}
+.sidebar a:hover{
+    text-decoration: none;
+    border-left: 5px solid #B8860B;
+    color: #DAA520
+}
+.sidebar a i{
+    font-size: 23px;
+    margin-right: 16px;
+}
+
+.sidebar a span{
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+@media(max-width: 800px){.sidebar{
+    height: 100vh;
+    width: 70px;
+    left: 0;
+    top: 0;
+    padding: 100px 0;
+    background-color: #1b1b1b;
+}
+
+header , header .d-flex{
+    display: none;
+} 
+
+.sidebar span{
+    position: absolute;
+    margin-left: 23px;
+    opacity: 0;
+    visibility: hidden;
+}  
+
+.sidebar a{
+    height: 60px;
+
+}
+.sidebar a i{
+    margin-left: -10px;
+}
+.sidebar a:hover{
+    text-decoration: none;
+    width: 200px;
+    background: inherit;
+}
+.sidebar a#config:hover{
+    width: 250px;
+    background: inherit;
+}
+
+.sidebar a:hover span{
+    opacity: 1;
+    visibility: visible;
+}
+}

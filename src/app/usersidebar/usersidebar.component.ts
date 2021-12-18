@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 
 @Component({
-  selector: 'app-usermenu',
-  templateUrl: './usermenu.component.html',
-  styleUrls: ['./usermenu.component.css']
+  selector: 'app-usersidebar',
+  templateUrl: './usersidebar.component.html',
+  styleUrls: ['./usersidebar.component.css']
 })
-export class UsermenuComponent implements OnInit {
+export class UsersidebarComponent implements OnInit {
 
   name= environment.name
   foto= environment.foto
@@ -17,6 +17,13 @@ export class UsermenuComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+  }
+  exit(){
+    this.router.navigate(['/login'])
+    environment.token=''
+    environment.name=''
+    environment.id=0
+    environment.foto=''
   }
 
 }
