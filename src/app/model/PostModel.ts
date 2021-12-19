@@ -6,6 +6,7 @@ export class PostModel {
   public title: string;
   public descriptionPost: string;
   public archive: string;
+  public picture: string;
   public date: Date;
   public fkTheme: ThemeModel;
   public fkUser: UserModel;

@@ -36,77 +36,56 @@
 
 </div>
 
-<div class="container my-5" id="post">
-  <nav>
-      <div class="nav nav-tabs d-flex justify-content-center my-5" id="nav-tab" role="tablist">
-        <a class="nav-link active text-secondary font-weight-bold" id="allPost-tab" data-toggle="tab" href="#allPost" role="tab" aria-controls="allPost" aria-selected="true">Todas as postagens</a>
+<div class="container">
+    <div class="card-columns d-flex flex-column flex-wrap justify-content-center align-content-center">
+        <div class="card mt-3 shadow border-0" style="width: 500px" *ngFor='let item of listPost | orderBy : key : reverse'>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-sm-11">
+                                <img src="{{item.fkUser.foto}}" 
+                                    alt="Imagem do usuário" 
+                                    width="50px" 
+                                    height="50px" 
+                                    class="rounded-circle mr-2"
+                                >
+                                <a [routerLink]="['/user-page', item.fkUser.id]" class="card-subtitle my-2 text-muted">{{item.fkUser.name}}</a>
+                            </div>
+                            <div class="col-sm-1">
+                                <ng-container class="col-md-2 justify-content-end" *ngIf='isHaveArchive(item.archive)'>
+                                    <a href="{{item.archive}}" target="_blank"><i class="fa fa-link" aria-hidden="true"></i></a>
+                                </ng-container>
+                            </div>
+                        </div>
 
-        <a (click)='findByIdUser()' class="nav-link text-secondary font-weight-bold" id="myPosts-tab" data-toggle="tab" href="#myPosts" role="tab" aria-controls="myPosts" aria-selected="false">Minhas Postagens</a>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5 class="card-text mb-0 mt-3">{{item.title}}</h5>
+                                <small class="text-muted">{{item.fkTheme.name}}</small>
+                                <p class="card-text mt-2">{{item.descriptionPost}}</p>
+                            </div>
+                        </div>
 
-        <a class="nav-link text-secondary font-weight-bold" id="postTheme-tab" data-toggle="tab" href="#postTheme"
-        role="tab" aria-controls="postTheme" aria-selected="false">Postagens por tema</a>
-      </div>
-    </nav>
+                        <div class="row mt-3">
+                            <div class="col-md-12 d-flex justify-content-center">
+                                <ng-container *ngIf='isHavePicture(item.picture)' class="col-md-12 d-flex justify-content-center">
+                                    <img width="300px" height="300px" src="{{item.picture}}" alt="Post Image">
+                                </ng-container>
+                            </div>
+                        </div>
 
-    <div class="tab-content mt-5" id="nav-tabContent">
-
-      <div class="tab-pane fade show active" id="allPost" role="tabpanel" aria-labelledby="allPost-tab">
-
-          <div class="card-columns d-flex flex-wrap justify-content-center">
-              <div class="card mt-3" style="width: 50%;" *ngFor='let item of listPost | orderBy : key : reverse'>
-                  <div class="card-body">
-                      <h6 class="card-subtitle mb-2 text-muted">by {{item.fkUser.name}}</h6>
-                      <h5 class="card-title">{{item.title}}</h5>
-                      <p class="card-text">{{item.descriptionPost}}</p>
-                      <small class="text-muted">{{item.fkTheme.name}}</small>
-                      <p class="card-text"  >
-                          <small>{{item.date | date: 'dd/MM/yyyy'}} às {{item.date | date: 'HH:mm'}}</small>
-                      </p>
-                  </div>
+                        <div class="row mt-2">
+                            <div class="col-md-12 d-flex justify-content-end">
+                                <p class="card-text"  >
+                                    <small>{{item.date | date: 'dd/MM/yyyy'}} às {{item.date | date: 'HH:mm'}}</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-          </div>
-
-      </div>
-
-      <div class="tab-pane fade" id="myPosts" role="tabpanel" aria-labelledby="myPosts-tab">
-
-          <div class="card-columns d-flex flex-wrap justify-content-center">
-              <div class="card mt-3" style="width: 50%;" *ngFor='let item of userModel.post | orderBy : key : reverse'>
-                  <div class="card-body">
-                      <h6 class="card-subtitle mb-2 text-muted">by {{userModel.name}}</h6>
-                      <h5 class="card-title">{{item.title}}</h5>
-                      <p class="card-text">{{item.descriptionPost}}</p>
-                      <small class="text-muted">{{item.fkTheme.name}}</small>
-                      <p class="card-text">{{item.archive}}</p>
-                      <p class="card-text"  >
-                          <small>{{item.date | date: 'dd/MM/yyyy'}} às {{item.date | date: 'HH:mm'}}</small>
-                      </p>
-
-                       <a [routerLink]="['/post-delete', item.idPost]" class="text-danger mr-3">Apagar</a>
-                       <a [routerLink]="['/post-edit', item.idPost]" class="text-info">Editar</a>
-
-                  </div>
-                </div>
-          </div>
-
-      </div>
-
-      <div class="tab-pane fade" id="postTheme" role="tabpanel" aria-labelledby="postTheme-tab">
-
-        <div class="card-columns d-flex flex-wrap justify-content-center" *ngFor='let tema of listTheme | orderBy : key : reverse'>
-              <div class="card mt-3" style="width: 50%;" *ngFor='let item of tema.post'>
-                  <div class="card-body">
-                      <h6 class="card-subtitle mb-2 text-muted">by {{item.fkUser.name}}</h6>
-                      <h5 class="card-title">{{item.title}}</h5>
-                      <p class="card-text">{{item.descriptionPost}}</p>
-                      <p class="card-text"  >
-                          <small>{{item.date | date: 'dd/MM/yyyy'}} às {{item.date | date: 'HH:mm'}}</small>
-                      </p>
-                  </div>
-                </div>
-          </div>
-
-      </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -137,28 +116,38 @@
                       >
                   </div>
                   <div class="form-group">
-                      <label for="titulo">Descrição da postagem</label>
-                      <input
-                          [(ngModel)]='postModel.descriptionPost'
+                      <label for="titulo">Texto da postagem</label>
+                      <textarea
+                        [(ngModel)]='postModel.descriptionPost'
                           class="form-control"
                           type="text"
                           name="descriptionPost"
                           id="descriptionPost"
-                          placeholder="Digite o título"
-                      >
+                          rows="3"
+                          placeholder="Digite o texto"
+                      ></textarea>
+                          
                   </div>
 
                   <div class="form-group">
-                      <label for="texto">Texto</label>
-                      <textarea
+                      <label for="archive">Link</label>
+                      <input
                           [(ngModel)]='postModel.archive'
                           class="form-control"
-                          name="texto"
-                          id="texto"
-                          rows="3"
-                          placeholder="Digite o texto">
-                      </textarea>
+                          name="archive"
+                          id="archive"
+                          placeholder="Insira o link">            
                   </div>
+
+                  <div class="form-group">
+                    <label for="archive">Link da Foto</label>
+                    <input
+                        [(ngModel)]='postModel.picture'
+                        class="form-control"
+                        name="picture"
+                        id="picture"
+                        placeholder="Insira o link da foto">            
+                 </div>
 
                   <div class="form-group">
                       <label for="texto">Escolha um novo Tema ou <a routerLink='/theme' data-dismiss="modal">Cadastre um novo</a>:</label>

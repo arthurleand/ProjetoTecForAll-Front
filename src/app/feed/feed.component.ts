@@ -92,9 +92,25 @@ export class FeedComponent implements OnInit {
     this.postService.postPublish(this.postModel).subscribe((resp: PostModel) => {
       this.postModel = resp
       this.alerts.showAlertSuccess('Postagem realizada com sucesso!!')
-      this.postModel = new PostModel
+      this.postModel = new PostModel()
       this.getAllPosts()
     })
+  }
+
+  isHaveArchive(archive: string) {
+    if(archive == null){
+      return false
+    } else {
+      return true
+    }
+  }
+
+  isHavePicture(picture: string) {
+    if(picture == null){
+      return false
+    } else {
+      return true
+    }
   }
 
 }
