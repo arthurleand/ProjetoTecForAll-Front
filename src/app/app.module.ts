@@ -24,6 +24,7 @@ import { PostDeleteComponent } from './delete/post-delete/post-delete.component'
 import { AlertsComponent } from './alerts/alerts.component';
 import { UsersidebarComponent } from './usersidebar/usersidebar.component';
 import { UserPageComponent } from './user-page/user-page.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 
@@ -47,7 +48,8 @@ import { UserPageComponent } from './user-page/user-page.component';
     PostDeleteComponent,
     AlertsComponent,
     UsersidebarComponent,
-    UserPageComponent
+    UserPageComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { ContactComponent } from './contact/contact.component';
 import { PostEditComponent } from './edit/post-edit/post-edit.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path: 'user-edit/:id', component: UserEditComponent},
   {path: 'post-edit/:id', component: PostEditComponent},
   {path: 'post-delete/:id', component: PostDeleteComponent},
-  {path: 'user-page/:id', component: UserPageComponent}
+  {path: 'user-page/:id', component: UserPageComponent},
+  {path: 'contact', component: ContactComponent}
 ];
 
 @NgModule({
