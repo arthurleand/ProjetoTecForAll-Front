@@ -38,8 +38,9 @@
                             </div>
                             <div class="col-md-4">
                                 <ng-container *ngIf='isUserlogin()'>
-                                    <a [routerLink]="['/post-delete', item.id]" class="text-danger mr-2">Apagar</a>
-                                    <a [routerLink]="['/post-edit', item.id]" class="text-info mr-3">Editar</a>
+                                    <a class="text-danger mr-2" data-toggle="modal" data-target="#deletePost" (click)='findByIdPost(item.idPost)'>Apagar</a>
+                                    <a class="text-info mr-3"  data-toggle="modal"
+                                    data-target="#updatePost" (click)='findByIdPost(item.idPost)'>Editar</a>
                                 </ng-container>
                                 <ng-container class="col-md-2 justify-content-end" *ngIf='isHaveArchive(item.archive)'>
                                     <a href="{{item.archive}}" target="_blank"><i class="fa fa-link" aria-hidden="true"></i></a>
@@ -70,13 +71,6 @@
                                 </p>
                             </div>
                         </div>
-
-                        <!-- <div class="row mt-2" *ngIf='isUserlogin()' >
-                            <div class="col-md-12">
-                                <a [routerLink]="['/post-delete', item.id]" class="text-danger mr-3">Apagar</a>
-                                <a [routerLink]="['/post-edit', item.id]" class="text-info">Editar</a>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -86,3 +80,98 @@
 
 
 
+<!-- Modal Update -->
+<div class="modal fade" id="updatePost" tabindex="-1" aria-labelledby="TituloModalCentralizado" aria-hidden="true" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="TituloModalCentralizado">Editar Postagem</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form>
+
+                <div class="form-group">
+                    <label for="titulo">Título</label>
+                    <input
+                        [(ngModel)]='postModel.title'
+                        class="form-control"
+                        type="text"
+                        name="titulo"
+                        id="titulo"
+                        placeholder="Digite o título"
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="titulo">Texto da postagem</label>
+                    <textarea
+                      [(ngModel)]='postModel.descriptionPost'
+                        class="form-control"
+                        type="text"
+                        name="descriptionPost"
+                        id="descriptionPost"
+                        rows="3"
+                        placeholder="Digite o texto"
+                    ></textarea>
+                        
+                </div>
+
+                <div class="form-group">
+                    <label for="archive">Link</label>
+                    <input
+                        [(ngModel)]='postModel.archive'
+                        class="form-control"
+                        name="archive"
+                        id="archive"
+                        placeholder="Insira o link">            
+                </div>
+
+                <div class="form-group">
+                  <label for="archive">Link da Foto</label>
+                  <input
+                      [(ngModel)]='postModel.picture'
+                      class="form-control"
+                      name="picture"
+                      id="picture"
+                      placeholder="Insira o link da foto">            
+               </div>
+
+                <div class="form-group">
+                    <label for="texto">Escolha um novo Tema ou <a routerLink='/theme' data-dismiss="modal">Cadastre um novo</a>:</label>
+                    <select class="form-control" name="theme" id="theme" [(ngModel)]='idTheme' (change)='findByIdTheme()'>
+                        <option *ngFor='let item of listTheme' value="{{item.idTheme}}">{{item.descriptionTheme}}</option>
+                    </select>
+                </div>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-success"  data-dismiss="modal" (click)='update()'>Atualizar</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Modal Delete -->
+<div class="modal fade" id="deletePost" tabindex="-1" aria-labelledby="TituloModalCentralizado" aria-hidden="true" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="TituloModalCentralizado">Editar Postagem</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+           <h3>Deseja mesmo deletar, {{postModel.title}}?</h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-success"  data-dismiss="modal" (click)='delete()'>Deletar</button>
+        </div>
+      </div>
+    </div>
+</div>
