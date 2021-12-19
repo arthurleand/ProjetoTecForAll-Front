@@ -11,7 +11,7 @@
         TEC <small class="fs-5 font-weight-bold">For All</small>
       </a>
     </header>
-    <header >
+    <header>
       <img
         src="{{foto}}"
         alt="imagem usuario"
@@ -24,7 +24,7 @@
       <i class="fa fa-home"></i>
       <span>Início</span>
     </a>
-    <a href="#">
+    <a [routerLink]="['/user-page', id]">
       <i class="fa fa-user"></i>
       <span>Perfil</span>
     </a>

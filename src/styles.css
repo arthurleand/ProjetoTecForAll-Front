@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
 html{
     scroll-behavior: smooth;
+    font-family: 'Open Sans' sans-serif;
 }
 .fs-54{
     font-size: 54pt;
@@ -17,3 +20,5 @@ background-color: #1b1b1b;
 .vh-100{
     min-height: 100vh;
 }
+
+

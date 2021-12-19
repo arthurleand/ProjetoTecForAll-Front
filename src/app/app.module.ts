@@ -23,6 +23,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { PostDeleteComponent } from './delete/post-delete/post-delete.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { UsersidebarComponent } from './usersidebar/usersidebar.component';
+import { UserPageComponent } from './user-page/user-page.component';
 
 
 
@@ -45,7 +46,8 @@ import { UsersidebarComponent } from './usersidebar/usersidebar.component';
     PostEditComponent,
     PostDeleteComponent,
     AlertsComponent,
-    UsersidebarComponent
+    UsersidebarComponent,
+    UserPageComponent
   ],
   imports: [
     BrowserModule,
