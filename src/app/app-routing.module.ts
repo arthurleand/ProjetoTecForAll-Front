@@ -11,6 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { StartComponent } from './start/start.component';
 import { ThemeComponent } from './theme/theme.component';
 import { PostDeleteComponent } from './delete/post-delete/post-delete.component';
+import { UserPageComponent } from './user-page/user-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path: 'feed', component: FeedComponent},
   {path: 'user-edit/:id', component: UserEditComponent},
   {path: 'post-edit/:id', component: PostEditComponent},
-  {path: 'post-delete/:id', component: PostDeleteComponent}
+  {path: 'post-delete/:id', component: PostDeleteComponent},
+  {path: 'user-page/:id', component: UserPageComponent}
 ];
 
 @NgModule({
