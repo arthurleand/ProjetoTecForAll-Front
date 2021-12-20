@@ -7,7 +7,7 @@
           <div class="row d-flex justify-content-center text-white">
               <div class="col-md-6">
                   <h1 class="fs-54">Seja Bem vindo(a)</h1>
-                  <h5 class="fs-18">Expresse aqui seus pensamentos e opiniões</h5>
+                  <h5 class="fs-18">Compartilhe conhecimento conosco.</h5>
               </div>
           </div>
 
@@ -140,19 +140,19 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="archive">Link da Foto</label>
+                    <label for="archive">Link da Imagem</label>
                     <input
                         [(ngModel)]='postModel.picture'
                         class="form-control"
                         name="picture"
                         id="picture"
-                        placeholder="Insira o link da foto">            
+                        placeholder="Insira o link da imagem">            
                  </div>
 
                   <div class="form-group">
-                      <label for="texto">Escolha um novo Tema ou <a routerLink='/theme' data-dismiss="modal">Cadastre um novo</a>:</label>
+                      <label for="texto">Escolha um Tema</label>
                       <select class="form-control" name="theme" id="theme" [(ngModel)]='idTheme' (change)='findByIdThemes()'>
-                          <option *ngFor='let item of listTheme' value="{{item.idTheme}}">{{item.descriptionTheme}}</option>
+                          <option *ngFor='let item of listTheme' value="{{item.idTheme}}">{{item.name}}</option>
                       </select>
                   </div>
 
