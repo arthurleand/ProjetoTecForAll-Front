@@ -23,7 +23,7 @@ export class AlertsService {
 
 
   showAlertSuccess(message: string){
-    this.showAlert(message, 'success')
+    this.showAlert(message, 'warning')
   }
 
   showAlertInfo(message: string){

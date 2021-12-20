@@ -20,5 +20,13 @@ background-color: #1b1b1b;
 .vh-100{
     min-height: 100vh;
 }
+.bg-blackg5{
+    background-color: #1b1b1b;
+}
+.bg-gradient{
+    background: #1b1b1b;
+    background: linear-gradient(180deg, #1b1b1b 0%, rgba(217,226,239,1) 100%);
+}
+
 
 
