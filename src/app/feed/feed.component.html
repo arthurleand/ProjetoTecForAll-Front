@@ -36,7 +36,7 @@
 
 </div>
 
-<div class="container bg-light">
+<div class="container bg-light" id="post">
     <div class="card-columns d-flex flex-column flex-wrap justify-content-center align-content-center">
         <div class="card mt-3 shadow border-0" style="width: 500px" *ngFor='let item of listPost | orderBy : key : reverse'>
             <div class="card-body">
@@ -160,7 +160,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-success" (click)='publish()' data-dismiss="modal">Publicar</button>
+            <button type="button" class="btn btn-warning" (click)='publish()' data-dismiss="modal">Publicar</button>
           </div>
         </div>
       </div>

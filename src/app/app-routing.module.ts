@@ -1,17 +1,12 @@
 import { ContactComponent } from './contact/contact.component';
-import { PostEditComponent } from './edit/post-edit/post-edit.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
-import { ThemeDeleteComponent } from './delete/theme-delete/theme-delete.component';
-import { ThemeEditComponent } from './edit/theme-edit/theme-edit.component';
 import { FeedComponent } from './feed/feed.component';
 import { UserEditComponent } from './edit/user-edit/user-edit.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { StartComponent } from './start/start.component';
-import { ThemeComponent } from './theme/theme.component';
-import { PostDeleteComponent } from './delete/post-delete/post-delete.component';
 import { UserPageComponent } from './user-page/user-page.component';
 
 const routes: Routes = [
@@ -19,15 +14,10 @@ const routes: Routes = [
 
   { path: 'home', component: StartComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'theme', component: ThemeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'theme-edit/:id', component: ThemeEditComponent},
-  {path: 'theme-delete/:id', component: ThemeDeleteComponent},
   {path: 'feed', component: FeedComponent},
   {path: 'user-edit/:id', component: UserEditComponent},
-  {path: 'post-edit/:id', component: PostEditComponent},
-  {path: 'post-delete/:id', component: PostDeleteComponent},
   {path: 'user-page/:id', component: UserPageComponent},
   {path: 'contact', component: ContactComponent}
 ];
