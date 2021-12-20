@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row">
-                            <div class="col-md-8 d-flex align-items-center">
+                            <div class="col-sm-6 d-flex align-items-center">
                                 <img 
                                     src="{{user.foto}}" 
                                     alt="Imagem do usuário" 
@@ -36,7 +36,7 @@
                                 >
                                 <p class="card-subtitle my-2 text-muted">{{user.name}}</p>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-sm-6 d-flex justify-content-end">
                                 <ng-container *ngIf='isUserlogin()'>
                                     <a class="text-danger mr-2" data-toggle="modal" data-target="#deletePost" (click)='findByIdPost(item.idPost)'>Apagar</a>
                                     <a class="text-info mr-3"  data-toggle="modal"
