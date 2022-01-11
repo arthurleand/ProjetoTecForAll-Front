@@ -32,7 +32,6 @@ export class UserEditComponent implements OnInit {
     this.authService.refreshToken()
     this.idUser = this.route.snapshot.params['id']
     this.findByidUser(this.idUser)
-    console.log(environment.token);
   }
 
   findByidUser(id:number){

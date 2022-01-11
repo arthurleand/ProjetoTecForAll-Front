@@ -64,7 +64,6 @@ export class UserPageComponent implements OnInit {
     this.auth.getByIdUser(this.idUser).subscribe((resp: UserModel) => {
       this.user = resp
       this.listPost = resp.post
-      console.log(this.listPost)
     }) 
   }
 

@@ -33,8 +33,6 @@ export class LoginComponent implements OnInit {
 
       this.router.navigate(['/feed'])
 
-      console.log(environment.token);
-
     }, erro=>{
       if(erro.status == 500){
         this.alerts.showAlertDanger('Usuário ou senha incorretos')

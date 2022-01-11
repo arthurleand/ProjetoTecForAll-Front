@@ -22,22 +22,22 @@ export class PostService {
   }
 
   getAllPost() : Observable<PostModel[]>{
-    return this.http.get<PostModel[]>('http://localhost:8080/post', this.token)
+    return this.http.get<PostModel[]>('https://techforall.herokuapp.com/post', this.token)
   }
 
  getByIdPost(id: number): Observable<PostModel>{
-   return this.http.get<PostModel>(`http://localhost:8080/post/${id}`, this.token)
+   return this.http.get<PostModel>(`https://techforall.herokuapp.com/post/${id}`, this.token)
  }
 
  postPublish(postModel: PostModel): Observable<PostModel>{
-   return this.http.post<PostModel>('http://localhost:8080/post', postModel, this.token)
+   return this.http.post<PostModel>('https://techforall.herokuapp.com/post', postModel, this.token)
  }
 
  putPost(postModel: PostModel): Observable<PostModel>{
-  return this.http.put<PostModel>('http://localhost:8080/post', postModel, this.token)
+  return this.http.put<PostModel>('https://techforall.herokuapp.com/post', postModel, this.token)
 }
 
   deletePost(id: number){
-    return this.http.delete(`http://localhost:8080/post/${id}`, this.token)
+    return this.http.delete(`https://techforall.herokuapp.com/post/${id}`, this.token)
   }
 }

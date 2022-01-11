@@ -78,7 +78,6 @@ export class FeedComponent implements OnInit {
   findByIdUser(){
     this.authService.getByIdUser(this.idUser).subscribe((resp: UserModel) =>{
       this.userModel = resp
-      console.log(this.userModel)
     })
   }
 

@@ -25,19 +25,19 @@ export class AuthService {
   }
 
     login(userLoginDTO : UserLoginDTO) : Observable<UserLoginDTO>{
-      return this.http.post<UserLoginDTO>('http://localhost:8080/user/login', userLoginDTO)
+      return this.http.post<UserLoginDTO>('https://techforall.herokuapp.com/user/login', userLoginDTO)
     }
 
     register(userRegistrationDTO: UserRegistrationDTO): Observable<UserRegistrationDTO>{
-      return this.http.post<UserRegistrationDTO>('http://localhost:8080/user/register',userRegistrationDTO)
+      return this.http.post<UserRegistrationDTO>('https://techforall.herokuapp.com/user/register',userRegistrationDTO)
     }
 
     getByIdUser(id: number):Observable<UserModel>{
-      return this.http.get<UserModel>(`http://localhost:8080/user/${id}`, this.token)
+      return this.http.get<UserModel>(`https://techforall.herokuapp.com/user/${id}`, this.token)
     }
 
     updateUser(user: UserModel): Observable<UserModel>{
-      return this.http.put<UserModel>('http://localhost:8080/user/update', user, this.token)
+      return this.http.put<UserModel>('https://techforall.herokuapp.com/user/update', user, this.token)
     }
 
     logado(){

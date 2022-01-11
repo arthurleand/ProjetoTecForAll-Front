@@ -22,24 +22,24 @@ export class ThemeService {
   }
 
   getAllTheme(): Observable<ThemeModel[]>{
-    return this.http.get<ThemeModel[]>('http://localhost:8080/theme', this.token)
+    return this.http.get<ThemeModel[]>('https://techforall.herokuapp.com/theme', this.token)
   }
 
   getByIdTheme(id: number): Observable<ThemeModel>{
-    return this.http.get<ThemeModel>(`http://localhost:8080/theme/${id}`, this.token)
+    return this.http.get<ThemeModel>(`https://techforall.herokuapp.com/theme/${id}`, this.token)
 
   }
 
   postTheme(theme: ThemeModel): Observable<ThemeModel>{
-    return this.http.post<ThemeModel>('http://localhost:8080/theme', theme ,this.token)
+    return this.http.post<ThemeModel>('https://techforall.herokuapp.com/theme', theme ,this.token)
 
   }
   putTheme(theme: ThemeModel): Observable<ThemeModel> {
-    return this.http.put<ThemeModel>('http://localhost:8080/theme', theme, this.token)
+    return this.http.put<ThemeModel>('https://techforall.herokuapp.com/theme', theme, this.token)
   }
 
   deleteTheme(id: number){
-    return this.http.delete(`http://localhost:8080/theme/${id}`,this.token)
+    return this.http.delete(`https://techforall.herokuapp.com/theme/${id}`,this.token)
   }
 
 }
